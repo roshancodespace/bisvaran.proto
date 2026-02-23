@@ -33,9 +33,9 @@ const coreServices = [
         href: "/services/elderly-care"
     },
     {
-        id: "telehealth",
-        title: "Telehealth Consults",
-        description: "Instant video consultations with top-tier general physicians and specialists.",
+        id: "doctor",
+        title: "Doctor Consulting",
+        description: "Instant video consultations or home visits from top-tier general physicians and specialists.",
         icon: (
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
@@ -43,7 +43,59 @@ const coreServices = [
         ),
         color: "bg-blue-50 text-blue-700",
         bgHover: "hover:bg-blue-100/50",
-        href: "#request-callback"
+        href: "/services/doctor-consulting"
+    },
+    {
+        id: "doctor_visit",
+        title: "Doctor Visit at Home",
+        description: "Personalized, direct-to-home physical checkups from certified medical professionals.",
+        icon: (
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+            </svg>
+        ),
+        color: "bg-purple-50 text-purple-700",
+        bgHover: "hover:bg-purple-100/50",
+        href: "/#request-callback"
+    },
+    {
+        id: "attendants",
+        title: "Hospital Attendants",
+        description: "Dedicated 12-hour or 24-hour bedside attendants to assist patients during hospital stays.",
+        icon: (
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+        ),
+        color: "bg-rose-50 text-rose-700",
+        bgHover: "hover:bg-rose-100/50",
+        href: "/services/hospital-attendants"
+    },
+    {
+        id: "travel",
+        title: "Travel Assistance",
+        description: "Professional caregivers to accompany and assist patients during local transit or long flights.",
+        icon: (
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+        ),
+        color: "bg-emerald-50 text-emerald-700",
+        bgHover: "hover:bg-emerald-100/50",
+        href: "/services/travel-assistance"
+    },
+    {
+        id: "blood_sampling",
+        title: "Blood Sampling",
+        description: "Safe, hygienic, and convenient lab sample collections directly from your home.",
+        icon: (
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+            </svg>
+        ),
+        color: "bg-fuchsia-50 text-fuchsia-700",
+        bgHover: "hover:bg-fuchsia-100/50",
+        href: "/#request-callback"
     },
     {
         id: "specialized",
@@ -51,7 +103,7 @@ const coreServices = [
         description: "In-home physiotherapy, speech therapy, and palliative care tailored to individual needs.",
         icon: (
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
         ),
         color: "bg-indigo-50 text-indigo-700",

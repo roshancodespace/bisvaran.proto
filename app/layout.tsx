@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 import PageTransition from "@/components/PageTransition";
 
 const spaceGrotesk = Space_Grotesk({
@@ -38,6 +39,7 @@ export default function RootLayout({
           {children}
           <Footer />
           <WhatsAppButton />
+          <ScrollToTopButton />
         </PageTransition>
       </body>
     </html>

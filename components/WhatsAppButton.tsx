@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { motion } from 'motion/react';
 
 export default function WhatsAppButton() {
-    const phoneNumber = "1234567890";
+    const phoneNumber = "918097836033";
     const message = "Hello, I would like to know more about the healthcare services.";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 

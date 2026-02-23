@@ -1,51 +1,31 @@
 "use client";
 
-import React from "react";
+import { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import Image from "next/image";
-
-const specialists = [
-    {
-        name: "Dr. Ananya Sharma",
-        role: "Senior Consultant",
-        specialty: "General Medicine",
-        image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=400&h=400",
-    },
-    {
-        name: "Nurse Rajesh Kumar",
-        role: "Critical Care Specialist",
-        specialty: "ICU & Home Nursing",
-        image: "https://images.unsplash.com/photo-1537368910025-7028b1db60dd?auto=format&fit=crop&q=80&w=400&h=400",
-    },
-    {
-        name: "Dr. Meera Patel",
-        role: "Cardiologist",
-        specialty: "Heart Health",
-        image: "https://images.unsplash.com/photo-1594824436998-d8abc9ec6df2?auto=format&fit=crop&q=80&w=400&h=400",
-    },
-    {
-        name: "Dr. Vikram Singh",
-        role: "Chief Surgeon",
-        specialty: "Orthopedics",
-        image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=400&h=400",
-    },
-    {
-        name: "Nurse Priya Desai",
-        role: "Elderly Care Staff",
-        specialty: "Palliative Care",
-        image: "https://images.unsplash.com/photo-1584043720379-b56cd9199c94?auto=format&fit=crop&q=80&w=400&h=400",
-    },
-    {
-        name: "Dr. Arjun Reddy",
-        role: "Consultant",
-        specialty: "Neurology",
-        image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=400&h=400",
-    }
-];
+import type { SpecialistData } from "@/data/specialists";
 
 export default function Specialists() {
+    const [specialists, setSpecialists] = useState<SpecialistData[]>([]);
+
+    useEffect(() => {
+        const fetchSpecialists = async () => {
+            try {
+                const response = await fetch('/api/specialists?featured=true');
+                if (response.ok) {
+                    const data = await response.json();
+                    setSpecialists(data);
+                }
+            } catch (error) {
+                console.error("Failed to fetch specialists:", error);
+            }
+        };
+
+        fetchSpecialists();
+    }, []);
+
     // Duplicate the array so we can infinitely scroll it seamlessly
-    const duplicatedSpecialists = [...specialists, ...specialists];
+    const duplicatedSpecialists = specialists.length > 0 ? [...specialists, ...specialists] : [];
 
     return (
         <section id="specialists" className="w-full py-16 lg:py-24 overflow-hidden relative bg-zinc-50 border-y border-zinc-100">
@@ -111,8 +91,8 @@ export default function Specialists() {
                                 <div className="absolute inset-0 bg-linear-to-t from-zinc-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                             </div>
                             <h3 className="text-xl font-bold text-zinc-900 tracking-tight">{person.name}</h3>
-                            <p className="text-teal-600 font-medium text-sm mt-1">{person.specialty}</p>
-                            <p className="text-zinc-500 text-sm mt-0.5">{person.role}</p>
+                            <p className="text-teal-600 font-medium text-sm mt-1">{person.specialties?.[0] || 'Specialist'}</p>
+                            <p className="text-zinc-500 text-sm mt-0.5">{person.title}</p>
                         </div>
                     ))}
                 </motion.div>

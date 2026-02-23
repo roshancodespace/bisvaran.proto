@@ -33,7 +33,10 @@ export default function RequestCallback() {
                             </div>
                             <div>
                                 <p className="text-xs text-teal-700 font-bold uppercase tracking-widest mb-0.5">Urgent Help?</p>
-                                <p className="text-lg tracking-tight">+1 (800) 123-4567</p>
+                                <div className="flex flex-col">
+                                    <a href="tel:+918097836033" className="text-lg tracking-tight hover:text-teal-700 transition-colors">+91 80978 36033</a>
+                                    <a href="tel:+919142476033" className="text-lg tracking-tight hover:text-teal-700 transition-colors">+91 91424 76033</a>
+                                </div>
                             </div>
                         </div>
                     </motion.div>
@@ -67,7 +70,12 @@ export default function RequestCallback() {
                                         <option value="" disabled>Select a service...</option>
                                         <option value="doctor">Doctor Consultation</option>
                                         <option value="nurse">Home Nursing</option>
+                                        <option value="elderly">Elderly Care</option>
                                         <option value="hospital">Hospital Admission</option>
+                                        <option value="therapy">Specialized Therapies</option>
+                                        <option value="telehealth">Telehealth Consults</option>
+                                        <option value="lab">Lab Tests & Diagnostics</option>
+                                        <option value="ambulance">Ambulance Services</option>
                                         <option value="other">Other / Not Sure</option>
                                     </select>
                                     <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-zinc-400">

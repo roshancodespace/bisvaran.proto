@@ -5,18 +5,18 @@ import Link from "next/link";
 const steps = [
     {
         id: '01',
-        title: 'Browse Hospitals',
-        description: 'Explore our curated list of top-rated healthcare facilities equipped with modern amenities.'
+        title: 'Discover Services',
+        description: 'Explore our comprehensive range of specialized home healthcare and medical services tailored to your needs.'
     },
     {
         id: '02',
-        title: 'Find Care',
-        description: 'Check detailed profiles of expert doctors or verified nurses available for home visits.'
+        title: 'Consult & Book',
+        description: 'Connect instantly with our care coordinators to get a personalized care plan recommendation and schedule your service.'
     },
     {
         id: '03',
-        title: 'Connect Instantly',
-        description: 'Request a callback or connect directly via WhatsApp to get immediate assistance'
+        title: 'Experience Premium Care',
+        description: 'Our vetted medical professionals and caregivers arrive at your doorstep to deliver rigorous, hospital-grade care.'
     }
 ];
 
