@@ -1,41 +1,27 @@
-"use client";
-import { useState, useEffect } from "react";
 import DoctorConsulting from "@/components/DoctorConsulting";
 import Pricing from "@/components/Pricing";
 import RequestCallback from "@/components/RequestCallback";
 import Faq from "@/components/Faq";
 import ServiceSpecialists from "@/components/ServiceSpecialists";
-import type { SpecialistData } from "@/data/specialists";
+import { specialistsData } from "@/data/specialists";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Doctor Consultations | Expert Medical Advice at Home",
+    description: "Connect with Bisvaran's verified specialists and general practitioners for in-person home visits or secure telehealth consultations.",
+    alternates: {
+        canonical: "/services/doctor-consulting",
+    }
+}
 
 export default function DoctorConsultingPage() {
-    const [specialists, setSpecialists] = useState<SpecialistData[]>([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const specialists = specialistsData.filter(s => (s.type === 'Doctor' && s.featured) || s.featured);
 
-    useEffect(() => {
-        const fetchDoctors = async () => {
-            try {
-                // Fetching Doctor type specialsits if available, else generalized
-                const response = await fetch('/api/specialists?type=Doctor&featured=true');
-                if (response.ok) {
-                    const data = await response.json();
-                    setSpecialists(data);
-                } else {
-                    // fallback if api doesn't match
-                    const fallbackResponse = await fetch('/api/specialists?featured=true');
-                    if (fallbackResponse.ok) {
-                        const data = await fallbackResponse.json();
-                        setSpecialists(data);
-                    }
-                }
-            } catch (error) {
-                console.error("Failed to fetch doctors:", error);
-            } finally {
-                setIsLoading(false);
-            }
-        };
+    let filteredSpecialists = specialistsData.filter(s => s.type === 'Doctor' && s.featured);
+    if (filteredSpecialists.length === 0) {
+        filteredSpecialists = specialistsData.filter(s => s.featured);
+    }
 
-        fetchDoctors();
-    }, []);
     return (
         <main className="min-h-screen pt-20">
             {/* Doctor Consulting Hero */}
@@ -72,18 +58,12 @@ export default function DoctorConsultingPage() {
                 <Pricing category="doctor-consulting" />
             </div>
 
-            {isLoading ? (
-                <div className="w-full flex justify-center py-24 bg-white">
-                    <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-teal-600"></div>
-                </div>
-            ) : (
-                <ServiceSpecialists
-                    title="Meet Our Physicians"
-                    subtitle="Highly trained doctors providing expert care, online and at your convenience."
-                    specialists={specialists as any}
-                    theme="teal"
-                />
-            )}
+            <ServiceSpecialists
+                title="Meet Our Physicians"
+                subtitle="Highly trained doctors providing expert care, online and at your convenience."
+                specialists={filteredSpecialists as any}
+                theme="teal"
+            />
             <RequestCallback />
             <Faq category="doctor-consulting" />
         </main>

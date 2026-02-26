@@ -1,5 +1,13 @@
-
 import Link from "next/link"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+    title: "Doctor Consultations | Expert Medical Advice at Home",
+    description: "Connect with Bisvaran's verified specialists and general practitioners for in-person home visits or secure telehealth consultations.",
+    alternates: {
+        canonical: "/doctor-consultations",
+    }
+}
 
 export default function DoctorConsultations() {
     return (

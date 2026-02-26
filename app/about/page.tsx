@@ -1,5 +1,14 @@
 import Link from "next/link"
 import Team from "@/components/Team"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+    title: "About Us | Our Story & Patient Advocacy",
+    description: "Learn about Bisvaran's mission to redefine the standard of home healthcare. We provide verified excellence and patient-first advocacy.",
+    alternates: {
+        canonical: "/about",
+    }
+}
 
 export default function AboutUs() {
     return (

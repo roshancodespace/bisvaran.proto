@@ -1,33 +1,21 @@
-"use client";
-import { useState, useEffect } from "react";
 import HospitalAttendants from "@/components/HospitalAttendants";
 import Pricing from "@/components/Pricing";
 import RequestCallback from "@/components/RequestCallback";
 import Faq from "@/components/Faq";
 import ServiceSpecialists from "@/components/ServiceSpecialists";
-import type { SpecialistData } from "@/data/specialists";
+import { specialistsData } from "@/data/specialists";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Hospital Attendants | Professional Patient Care Staff",
+    description: "Ensure your loved ones receive constant attention and care during their hospital stay with our trained and compassionate hospital attendants.",
+    alternates: {
+        canonical: "/services/hospital-attendants",
+    }
+}
 
 export default function HospitalAttendantsPage() {
-    const [specialists, setSpecialists] = useState<SpecialistData[]>([]);
-    const [isLoading, setIsLoading] = useState(true);
-
-    useEffect(() => {
-        const fetchCaregivers = async () => {
-            try {
-                const response = await fetch('/api/specialists?type=Caregiver&featured=true');
-                if (response.ok) {
-                    const data = await response.json();
-                    setSpecialists(data);
-                }
-            } catch (error) {
-                console.error("Failed to fetch specialists:", error);
-            } finally {
-                setIsLoading(false);
-            }
-        };
-
-        fetchCaregivers();
-    }, []);
+    const specialists = specialistsData.filter(s => s.type === 'Caregiver' && s.featured);
 
     return (
         <main className="min-h-screen pt-20">
@@ -65,20 +53,14 @@ export default function HospitalAttendantsPage() {
                 <Pricing category="hospital-attendants" />
             </div>
 
-            {isLoading ? (
-                <div className="w-full flex justify-center py-24 bg-zinc-50">
-                    <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-teal-600"></div>
-                </div>
-            ) : (
-                <div className="bg-zinc-50 pt-12 pb-24">
-                    <ServiceSpecialists
-                        title="Meet Our Certified Attendants"
-                        subtitle="Compassionate and highly trained attendants dedicated to ensuring your comfort and safety."
-                        specialists={specialists as any}
-                        theme="teal"
-                    />
-                </div>
-            )}
+            <div className="bg-zinc-50 pt-12 pb-24">
+                <ServiceSpecialists
+                    title="Meet Our Certified Attendants"
+                    subtitle="Compassionate and highly trained attendants dedicated to ensuring your comfort and safety."
+                    specialists={specialists as any}
+                    theme="teal"
+                />
+            </div>
 
             <RequestCallback />
             <Faq category="hospital-attendants" />

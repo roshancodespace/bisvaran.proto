@@ -1,3 +1,16 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Terms of Service | Bisvaran",
+    description: "Read Bisvaran's terms of service. By accessing and using our platform, you agree to abide by these terms.",
+    alternates: {
+        canonical: "/terms",
+    },
+    robots: {
+        index: false,
+    }
+}
+
 export default function TermsOfService() {
     return (
         <main className="min-h-screen bg-zinc-50 flex flex-col font-grotesk">

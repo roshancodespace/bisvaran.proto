@@ -1,4 +1,13 @@
 import Link from "next/link"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+    title: "24/7 Emergency Support | Immediate Medical Response",
+    description: "Get rapid emergency medical response. Our platform connects you with the nearest ambulances and priority hospital admissions.",
+    alternates: {
+        canonical: "/emergency-support",
+    }
+}
 
 export default function EmergencySupport() {
     return (

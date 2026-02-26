@@ -1,4 +1,13 @@
 import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: "How It Works - Step 3 | Experience Premium Care",
+    description: "Experience premium home healthcare with Bisvaran. Our rigorously vetted professionals bring hospital-grade care directly to you.",
+    alternates: {
+        canonical: "/how-it-works/step-03",
+    }
+}
 
 export default function StepThree() {
     return (

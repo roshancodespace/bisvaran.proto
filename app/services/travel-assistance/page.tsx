@@ -1,33 +1,22 @@
-"use client";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import TravelAssistance from "@/components/TravelAssistance";
 import Pricing from "@/components/Pricing";
 import RequestCallback from "@/components/RequestCallback";
 import Faq from "@/components/Faq";
 import ServiceSpecialists from "@/components/ServiceSpecialists";
-import type { SpecialistData } from "@/data/specialists";
+import { specialistsData } from "@/data/specialists";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Medical Travel Assistance | Safe Transit Escort Services",
+    description: "Experience stress-free transit with our professional medical escorts who ensure your loved ones are safely and comfortably transported.",
+    alternates: {
+        canonical: "/services/travel-assistance",
+    }
+}
 
 export default function TravelAssistancePage() {
-    const [specialists, setSpecialists] = useState<SpecialistData[]>([]);
-    const [isLoading, setIsLoading] = useState(true);
-
-    useEffect(() => {
-        const fetchCaregivers = async () => {
-            try {
-                const response = await fetch('/api/specialists?type=Caregiver&featured=true');
-                if (response.ok) {
-                    const data = await response.json();
-                    setSpecialists(data);
-                }
-            } catch (error) {
-                console.error("Failed to fetch specialists:", error);
-            } finally {
-                setIsLoading(false);
-            }
-        };
-
-        fetchCaregivers();
-    }, []);
+    const specialists = specialistsData.filter(s => s.type === 'Caregiver' && s.featured);
 
     return (
         <main className="min-h-screen pt-20">
@@ -65,20 +54,14 @@ export default function TravelAssistancePage() {
                 <Pricing category="travel-assistance" />
             </div>
 
-            {isLoading ? (
-                <div className="w-full flex justify-center py-24 bg-zinc-50">
-                    <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-teal-600"></div>
-                </div>
-            ) : (
-                <div className="bg-zinc-50 pt-12 pb-24">
-                    <ServiceSpecialists
-                        title="Meet Our Caregivers"
-                        subtitle="Compassionate staff who ensure comfort and safety throughout the entire journey."
-                        specialists={specialists as any}
-                        theme="teal"
-                    />
-                </div>
-            )}
+            <div className="bg-zinc-50 pt-12 pb-24">
+                <ServiceSpecialists
+                    title="Meet Our Caregivers"
+                    subtitle="Compassionate staff who ensure comfort and safety throughout the entire journey."
+                    specialists={specialists as any}
+                    theme="teal"
+                />
+            </div>
 
             <RequestCallback />
             <Faq category="travel-assistance" />

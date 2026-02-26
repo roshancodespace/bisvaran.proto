@@ -1,4 +1,13 @@
 import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: "How It Works - Step 2 | Consult & Book",
+    description: "Connect instantly with our dedicated care coordinators to assess your unique medical requirements and book the perfect care professional.",
+    alternates: {
+        canonical: "/how-it-works/step-02",
+    }
+}
 
 export default function StepTwo() {
     return (

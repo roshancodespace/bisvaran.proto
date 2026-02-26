@@ -1,4 +1,13 @@
 import Link from "next/link"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+    title: "Home Nursing Services | Professional Care at Home",
+    description: "Get professional home nursing care. Our verified nurses provide round-the-clock care, post-operative recovery, and elder care management.",
+    alternates: {
+        canonical: "/home-nursing",
+    }
+}
 
 export default function HomeNursing() {
     return (

@@ -1,4 +1,13 @@
 import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: "How It Works - Step 1 | Discover Care Plans",
+    description: "Learn how to discover and choose the right home healthcare plan with Bisvaran. Explore our comprehensive services.",
+    alternates: {
+        canonical: "/how-it-works/step-01",
+    }
+}
 
 export default function StepOne() {
     return (

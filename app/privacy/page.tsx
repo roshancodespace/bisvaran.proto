@@ -1,3 +1,16 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Privacy Policy | Bisvaran",
+    description: "Read Bisvaran's privacy policy to understand how we collect, use, and protect your personal data.",
+    alternates: {
+        canonical: "/privacy",
+    },
+    robots: {
+        index: false,
+    }
+}
+
 export default function PrivacyPolicy() {
     return (
         <main className="min-h-screen bg-zinc-50 flex flex-col font-grotesk">

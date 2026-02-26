@@ -1,33 +1,22 @@
-"use client";
-import { useState, useEffect } from "react";
 import ElderlyCare from "@/components/ElderlyCare";
 import Pricing from "@/components/Pricing";
 import RequestCallback from "@/components/RequestCallback";
 import Faq from "@/components/Faq";
 import ServiceSpecialists from "@/components/ServiceSpecialists";
-import type { SpecialistData } from "@/data/specialists";
+import { specialistsData } from "@/data/specialists";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Elderly Care Services | Compassionate Care at Home",
+    description: "Give your loved ones the dignity, companionship, and professional daily assistance they deserve. Our certified caregivers provide personalized support.",
+    alternates: {
+        canonical: "/services/elderly-care",
+    }
+}
 
 export default function ElderlyCarePage() {
-    const [specialists, setSpecialists] = useState<SpecialistData[]>([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const specialists = specialistsData.filter(s => s.type === 'Caregiver' && s.featured);
 
-    useEffect(() => {
-        const fetchCaregivers = async () => {
-            try {
-                const response = await fetch('/api/specialists?type=Caregiver&featured=true');
-                if (response.ok) {
-                    const data = await response.json();
-                    setSpecialists(data);
-                }
-            } catch (error) {
-                console.error("Failed to fetch caregivers:", error);
-            } finally {
-                setIsLoading(false);
-            }
-        };
-
-        fetchCaregivers();
-    }, []);
     return (
         <main className="min-h-screen pt-20">
             {/* Elderly Care Hero */}
@@ -58,18 +47,12 @@ export default function ElderlyCarePage() {
 
             <ElderlyCare />
 
-            {isLoading ? (
-                <div className="w-full flex justify-center py-24 bg-white">
-                    <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-orange-500"></div>
-                </div>
-            ) : (
-                <ServiceSpecialists
-                    title="Meet Our Caregivers"
-                    subtitle="Compassionate, vetted professionals dedicated to treating your loved ones like family."
-                    specialists={specialists as any}
-                    theme="orange"
-                />
-            )}
+            <ServiceSpecialists
+                title="Meet Our Caregivers"
+                subtitle="Compassionate, vetted professionals dedicated to treating your loved ones like family."
+                specialists={specialists as any}
+                theme="orange"
+            />
 
             <div id="pricing" className="w-full bg-zinc-50/50">
                 <Pricing category="elderly-care" />

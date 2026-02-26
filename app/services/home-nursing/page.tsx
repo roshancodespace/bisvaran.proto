@@ -1,33 +1,22 @@
-"use client";
-import { useState, useEffect } from "react";
 import Nursing from "@/components/Nursing";
 import Pricing from "@/components/Pricing";
 import RequestCallback from "@/components/RequestCallback";
 import Faq from "@/components/Faq";
 import ServiceSpecialists from "@/components/ServiceSpecialists";
-import type { SpecialistData } from "@/data/specialists";
+import { specialistsData } from "@/data/specialists";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Home Nursing Services | Professional Care at Home",
+    description: "Get professional home nursing care. Our verified nurses provide round-the-clock care, post-operative recovery, and elder care management.",
+    alternates: {
+        canonical: "/services/home-nursing",
+    }
+}
 
 export default function HomeNursingPage() {
-    const [specialists, setSpecialists] = useState<SpecialistData[]>([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const specialists = specialistsData.filter(s => s.type === 'Nurse' && s.featured);
 
-    useEffect(() => {
-        const fetchNurses = async () => {
-            try {
-                const response = await fetch('/api/specialists?type=Nurse&featured=true');
-                if (response.ok) {
-                    const data = await response.json();
-                    setSpecialists(data);
-                }
-            } catch (error) {
-                console.error("Failed to fetch nurses:", error);
-            } finally {
-                setIsLoading(false);
-            }
-        };
-
-        fetchNurses();
-    }, []);
     return (
         <main className="min-h-screen pt-20">
             {/* Home Nursing Hero */}
@@ -64,18 +53,12 @@ export default function HomeNursingPage() {
                 <Pricing category="home-nursing" />
             </div>
 
-            {isLoading ? (
-                <div className="w-full flex justify-center py-24 bg-white">
-                    <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-teal-600"></div>
-                </div>
-            ) : (
-                <ServiceSpecialists
-                    title="Meet Our Senior Nurses"
-                    subtitle="Highly trained professionals bringing ICU-level care and compassionate support to your home."
-                    specialists={specialists as any}
-                    theme="teal"
-                />
-            )}
+            <ServiceSpecialists
+                title="Meet Our Senior Nurses"
+                subtitle="Highly trained professionals bringing ICU-level care and compassionate support to your home."
+                specialists={specialists as any}
+                theme="teal"
+            />
             <RequestCallback />
             <Faq category="home-nursing" />
         </main>

@@ -1,4 +1,13 @@
 import Link from "next/link"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+    title: "At-Home Physiotherapy & Rehabilitation Services",
+    description: "Certified physiotherapists design customized rehabilitation programs to help you recover from injury and improve your mobility at home.",
+    alternates: {
+        canonical: "/physiotherapy",
+    }
+}
 
 export default function Physiotherapy() {
     return (
