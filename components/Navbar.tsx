@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "motion/react";
 import Image from "next/image";
 
 export default function Navbar() {
@@ -10,9 +10,10 @@ export default function Navbar() {
     const [isServicesOpen, setIsServicesOpen] = useState(false);
     const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
     const [hidden, setHidden] = useState(false);
-    const lastScrollY = useRef(0);
+    const { scrollY } = useScroll();
     const pathname = usePathname();
     const dropdownRef = useRef<HTMLDivElement>(null);
+
 
     // Close dropdown when clicking outside
     useEffect(() => {
@@ -31,24 +32,18 @@ export default function Navbar() {
     }, [pathname]);
 
     // Handle Navbar visibility on scroll
-    useEffect(() => {
-        const handleScroll = () => {
-            const currentScrollY = window.scrollY;
-            if (currentScrollY > lastScrollY.current && currentScrollY > 150) {
-                // Scrolling down
-                setHidden(true);
-                // Also close dropdowns when scrolling down
-                setIsServicesOpen(false);
-            } else {
-                // Scrolling up
-                setHidden(false);
-            }
-            lastScrollY.current = currentScrollY;
-        };
-
-        window.addEventListener("scroll", handleScroll, { passive: true });
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+    useMotionValueEvent(scrollY, "change", (latest) => {
+        const previous = scrollY.getPrevious() ?? 0;
+        if (latest > previous && latest > 150) {
+            // Scrolling down
+            setHidden(true);
+            // Also close dropdowns when scrolling down
+            setIsServicesOpen(false);
+        } else {
+            // Scrolling up
+            setHidden(false);
+        }
+    });
 
     const navLinks = [
         { name: "Home", href: "/" },
