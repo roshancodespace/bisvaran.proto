@@ -25,10 +25,10 @@ export default function Specialists() {
     }, []);
 
     // Duplicate the array so we can infinitely scroll it seamlessly
-    const duplicatedSpecialists = specialists.length > 0 ? [...specialists, ...specialists] : [];
+    const duplicatedSpecialists = specialists.length > 0 ? [...specialists, ...specialists, ...specialists] : [];
 
     return (
-        <section id="specialists" className="w-full py-16 lg:py-24 overflow-hidden relative bg-zinc-50 border-y border-zinc-100">
+        <section id="specialists" className="w-full py-16 lg:py-24 overflow-hidden relative bg-teal-50 border-y border-zinc-100">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
                 <div className="flex flex-col md:flex-row gap-8 items-center justify-between">
                     <motion.div
@@ -60,8 +60,8 @@ export default function Specialists() {
             {/* Marquee Container */}
             <div className="relative w-full overflow-hidden flex items-center mt-10">
                 {/* Gradient Masks for fade effect on edges */}
-                <div className="absolute top-0 bottom-0 left-0 w-24 md:w-48 bg-linear-to-r from-zinc-50 to-transparent z-10 pointer-events-none"></div>
-                <div className="absolute top-0 bottom-0 right-0 w-24 md:w-48 bg-linear-to-l from-zinc-50 to-transparent z-10 pointer-events-none"></div>
+                <div className="absolute top-0 bottom-0 left-0 w-24 md:w-48 bg-linear-to-r from-teal-50 to-transparent z-10 pointer-events-none"></div>
+                <div className="absolute top-0 bottom-0 right-0 w-24 md:w-48 bg-linear-to-l from-teal-50 to-transparent z-10 pointer-events-none"></div>
 
                 <motion.div
                     className="flex gap-8 px-4"

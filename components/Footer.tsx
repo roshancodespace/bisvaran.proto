@@ -82,7 +82,11 @@ export default function Footer() {
                 </div>
 
                 <div className="border-t border-zinc-800/80 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p className="text-zinc-500 text-sm">© {new Date().getFullYear()} Bisvaran. All rights reserved.</p>
+                    <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-center">
+                        <p className="text-zinc-500 text-sm">© {new Date().getFullYear()} Bisvaran. All rights reserved.</p>
+                        <p className="text-zinc-600 text-sm hidden md:block">•</p>
+                        <p className="text-zinc-500 text-sm">Created by <span className="text-zinc-400 font-medium tracking-wide">Pathixo Pvt Ltd</span></p>
+                    </div>
                     <div className="flex space-x-6 text-sm">
                         <Link href="/privacy" className="text-zinc-500 hover:text-teal-400 transition-colors">Privacy Policy</Link>
                         <Link href="/terms" className="text-zinc-500 hover:text-teal-400 transition-colors">Terms of Service</Link>

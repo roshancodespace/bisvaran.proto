@@ -170,7 +170,7 @@ export default function Navbar() {
 
             {/* Mobile Sidebar */}
             <div
-                className={`fixed top-0 right-0 h-full w-72 bg-white z-70 shadow-2xl transform transition-transform duration-300 ease-in-out flex flex-col lg:hidden ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
+                className={`fixed top-0 right-0 h-full w-72 bg-white z-75 shadow-2xl transform transition-transform duration-300 ease-in-out flex flex-col lg:hidden ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
             >
                 <div className="p-5 border-b border-zinc-100 flex justify-between items-center">
                     <div id="brand_logo_mobile" className="flex items-end leading-none font-bold text-xl tracking-tight text-teal-900">

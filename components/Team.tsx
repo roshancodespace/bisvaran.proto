@@ -60,7 +60,7 @@ export default function Team() {
     const activeMember = teamMembers[activeIndex];
 
     return (
-        <section id="team" className="py-16 lg:py-24 overflow-hidden relative w-full overflow-x-clip max-w-[100vw]">
+        <section id="team" className="py-16 lg:py-24 overflow-hidden relative w-full bg-teal-50 max-w-[100vw]">
             <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}

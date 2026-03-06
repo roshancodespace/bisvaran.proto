@@ -82,9 +82,9 @@ export default function HospitalAttendants() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, margin: "-50px" }}
                                 transition={{ duration: 0.4, delay: index * 0.05 }}
-                                className="group flex gap-4 p-5 rounded-2xl border border-zinc-100 bg-white hover:border-teal-100 hover:shadow-xl hover:shadow-teal-900/5 transition-all duration-300"
+                                className={`group flex gap-4 p-5 rounded-2xl border border-zinc-100 hover:border-teal-100 hover:shadow-xl hover:shadow-teal-900/5 transition-all duration-300 ${iconColor.split(' ')[0]} ${iconColor.split(' ')[2]}`}
                             >
-                                <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 transition-colors ${iconColor}`}>
+                                <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 transition-colors bg-white ${iconColor.split(' ')[1]}`}>
                                     {item.icon}
                                 </div>
                                 <div>

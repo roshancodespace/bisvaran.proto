@@ -3,8 +3,7 @@ import { Montserrat, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
-import ScrollToTopButton from "@/components/ScrollToTopButton";
+import FloatingWidget from "@/components/FloatingWidget";
 import PageTransition from "@/components/PageTransition";
 
 const spaceGrotesk = Space_Grotesk({
@@ -67,8 +66,7 @@ export default function RootLayout({
           <Navbar />
           {children}
           <Footer />
-          <WhatsAppButton />
-          <ScrollToTopButton />
+          <FloatingWidget />
         </PageTransition>
       </body>
     </html>

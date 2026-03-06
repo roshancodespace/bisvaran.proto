@@ -174,7 +174,7 @@ function ParallaxRow({ items, baseVelocity = 100 }: ParallaxRowProps) {
 // Main Component
 export default function Testimonials() {
     return (
-        <section id="testimonials" className="w-full bg-zinc-50 border-y border-zinc-100 py-20 lg:py-32 overflow-hidden relative">
+        <section id="testimonials" className="w-full bg-teal-50 border-y border-zinc-100 py-20 lg:py-32 overflow-hidden relative">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 lg:mb-24 relative z-10">
                 <div className="flex flex-col items-center text-center">
                     <motion.h4
@@ -208,15 +208,15 @@ export default function Testimonials() {
             </div>
             {/* Parallax Container */}
             <div className="w-full flex flex-col gap-4 relative z-0">
-                <Globe className="-translate-y-1/4"/>
+                <Globe className="-translate-y-1/4" />
                 {/* Visual fading edges */}
-                <div className="absolute top-0 bottom-0 left-0 w-16 md:w-48 bg-linear-to-r from-zinc-50 to-transparent z-10 pointer-events-none"></div>
-                <div className="absolute top-0 bottom-0 right-0 w-16 md:w-48 bg-linear-to-l from-zinc-50 to-transparent z-10 pointer-events-none"></div>
+                <div className="absolute top-0 bottom-0 left-0 w-16 md:w-48 bg-linear-to-r from-teal-50 to-transparent z-10 pointer-events-none"></div>
+                <div className="absolute top-0 bottom-0 right-0 w-16 md:w-48 bg-linear-to-l from-teal-50 to-transparent z-10 pointer-events-none"></div>
 
-              <div className="mt-20 bg-white relative z-10 space-y-4">
-                <ParallaxRow items={testimonialsRow1} baseVelocity={-1.5} />
-                <ParallaxRow items={testimonialsRow2} baseVelocity={1.5} />
-              </div>    
+                <div className="mt-20 relative z-10 space-y-4">
+                    <ParallaxRow items={testimonialsRow1} baseVelocity={-1.5} />
+                    <ParallaxRow items={testimonialsRow2} baseVelocity={1.5} />
+                </div>
             </div>
         </section>
     );

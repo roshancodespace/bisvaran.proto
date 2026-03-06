@@ -36,16 +36,16 @@ export const teamData: TeamMember[] = [
         image: "/images/amar.png",
         bio: "Connecting patients with our services through effective communication and outreach strategies."
     },
-    {
-        name: "Rani Yadav",
-        role: "Senior Nursing Staff",
-        image: "/images/rani.png",
-        bio: "Providing expert, compassionate care and mentoring the next generation of nursing professionals."
-    },
-    {
-        name: "Ranjana Yadav",
-        role: "Nursing Staff",
-        image: "/images/ranjana.png",
-        bio: "Dedicated to delivering attentive, high-quality patient care and ensuring patient comfort and recovery."
-    }
+    // {
+    //     name: "Rani Yadav",
+    //     role: "Senior Nursing Staff",
+    //     image: "/images/rani.png",
+    //     bio: "Providing expert, compassionate care and mentoring the next generation of nursing professionals."
+    // },
+    // {
+    //     name: "Ranjana Yadav",
+    //     role: "Nursing Staff",
+    //     image: "/images/ranjana.png",
+    //     bio: "Dedicated to delivering attentive, high-quality patient care and ensuring patient comfort and recovery."
+    // }
 ];

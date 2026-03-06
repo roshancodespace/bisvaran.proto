@@ -16,6 +16,7 @@ const coreServices = [
             </svg>
         ),
         color: "bg-teal-50 text-teal-700",
+        bgDefault: "bg-teal-50",
         bgHover: "hover:bg-teal-100/50",
         href: "/services/home-nursing"
     },
@@ -29,6 +30,7 @@ const coreServices = [
             </svg>
         ),
         color: "bg-orange-50 text-orange-700",
+        bgDefault: "bg-orange-50",
         bgHover: "hover:bg-orange-100/50",
         href: "/services/elderly-care"
     },
@@ -42,6 +44,7 @@ const coreServices = [
             </svg>
         ),
         color: "bg-blue-50 text-blue-700",
+        bgDefault: "bg-blue-50",
         bgHover: "hover:bg-blue-100/50",
         href: "/services/doctor-consulting"
     },
@@ -55,6 +58,7 @@ const coreServices = [
             </svg>
         ),
         color: "bg-purple-50 text-purple-700",
+        bgDefault: "bg-purple-50",
         bgHover: "hover:bg-purple-100/50",
         href: "/#request-callback"
     },
@@ -68,6 +72,7 @@ const coreServices = [
             </svg>
         ),
         color: "bg-rose-50 text-rose-700",
+        bgDefault: "bg-rose-50",
         bgHover: "hover:bg-rose-100/50",
         href: "/services/hospital-attendants"
     },
@@ -81,6 +86,7 @@ const coreServices = [
             </svg>
         ),
         color: "bg-emerald-50 text-emerald-700",
+        bgDefault: "bg-emerald-50",
         bgHover: "hover:bg-emerald-100/50",
         href: "/services/travel-assistance"
     },
@@ -94,6 +100,7 @@ const coreServices = [
             </svg>
         ),
         color: "bg-fuchsia-50 text-fuchsia-700",
+        bgDefault: "bg-fuchsia-50",
         bgHover: "hover:bg-fuchsia-100/50",
         href: "/#request-callback"
     },
@@ -107,6 +114,7 @@ const coreServices = [
             </svg>
         ),
         color: "bg-indigo-50 text-indigo-700",
+        bgDefault: "bg-indigo-50",
         bgHover: "hover:bg-indigo-100/50",
         href: "#request-callback"
     }
@@ -146,7 +154,7 @@ export default function Services() {
                         transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
                     >
                         <Link href={service.href} className="block group h-full">
-                            <div className={`p-6 rounded-2xl h-full border border-zinc-100 transition-all duration-300 ${service.bgHover} hover:shadow-lg hover:-translate-y-1 bg-white relative overflow-hidden flex flex-col`}>
+                            <div className={`p-6 rounded-2xl h-full border border-zinc-100 transition-all duration-300 ${service.bgDefault} ${service.bgHover} hover:shadow-lg hover:-translate-y-1 relative overflow-hidden flex flex-col`}>
                                 {/* Soft background circle for material feel */}
                                 <div className={`absolute -right-8 -top-8 w-32 h-32 rounded-full opacity-30 transition-transform duration-500 group-hover:scale-150 ${service.color}`}></div>
 
