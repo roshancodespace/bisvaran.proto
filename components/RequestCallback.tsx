@@ -61,7 +61,7 @@ export default function RequestCallback() {
                             </div>
                             <div className="space-y-1.5">
                                 <label htmlFor="phone" className="block text-sm font-medium text-zinc-700 ml-1">Phone Number</label>
-                                <input type="tel" id="phone" className="w-full px-4 py-3 rounded-xl border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-teal-500/50 focus:border-teal-500 transition-all bg-zinc-50/50" placeholder="+1 (555) 000-0000" />
+                                <input type="tel" id="phone" className="w-full px-4 py-3 rounded-xl border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-teal-500/50 focus:border-teal-500 transition-all bg-zinc-50/50" placeholder="+91 (555) 000-0000" />
                             </div>
                             <div className="space-y-1.5">
                                 <label htmlFor="service" className="block text-sm font-medium text-zinc-700 ml-1">Service Required</label>
