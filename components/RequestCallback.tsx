@@ -48,25 +48,26 @@ export default function RequestCallback() {
                         transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
                         className="bg-white rounded-2xl p-6 sm:p-8 shadow-xl shadow-teal-900/5 relative"
                     >
-                        <form className="flex flex-col gap-5">
+                        {/* Formspree Integration */}
+                        <form action="https://formspree.io/f/xzdkwqqy" method="POST" target="_blank" className="flex flex-col gap-5">
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                                 <div className="space-y-1.5">
                                     <label htmlFor="firstName" className="block text-sm font-medium text-zinc-700 ml-1">First Name</label>
-                                    <input type="text" id="firstName" className="w-full px-4 py-3 rounded-xl border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-teal-500/50 focus:border-teal-500 transition-all bg-zinc-50/50" placeholder="John" />
+                                    <input type="text" id="firstName" name="firstName" className="w-full px-4 py-3 rounded-xl border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-teal-500/50 focus:border-teal-500 transition-all bg-zinc-50/50" placeholder="John" required />
                                 </div>
                                 <div className="space-y-1.5">
                                     <label htmlFor="lastName" className="block text-sm font-medium text-zinc-700 ml-1">Last Name</label>
-                                    <input type="text" id="lastName" className="w-full px-4 py-3 rounded-xl border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-teal-500/50 focus:border-teal-500 transition-all bg-zinc-50/50" placeholder="Doe" />
+                                    <input type="text" id="lastName" name="lastName" className="w-full px-4 py-3 rounded-xl border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-teal-500/50 focus:border-teal-500 transition-all bg-zinc-50/50" placeholder="Doe" required />
                                 </div>
                             </div>
                             <div className="space-y-1.5">
                                 <label htmlFor="phone" className="block text-sm font-medium text-zinc-700 ml-1">Phone Number</label>
-                                <input type="tel" id="phone" className="w-full px-4 py-3 rounded-xl border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-teal-500/50 focus:border-teal-500 transition-all bg-zinc-50/50" placeholder="+91 (555) 000-0000" />
+                                <input type="tel" id="phone" name="phone" className="w-full px-4 py-3 rounded-xl border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-teal-500/50 focus:border-teal-500 transition-all bg-zinc-50/50" placeholder="+91 (555) 000-0000" required />
                             </div>
                             <div className="space-y-1.5">
                                 <label htmlFor="service" className="block text-sm font-medium text-zinc-700 ml-1">Service Required</label>
                                 <div className="relative">
-                                    <select id="service" defaultValue="" className="w-full px-4 py-3 rounded-xl border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-teal-500/50 focus:border-teal-500 transition-all bg-zinc-50/50 appearance-none text-zinc-700">
+                                    <select id="service" name="service" defaultValue="" className="w-full px-4 py-3 rounded-xl border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-teal-500/50 focus:border-teal-500 transition-all bg-zinc-50/50 appearance-none text-zinc-700" required>
                                         <option value="" disabled>Select a service...</option>
                                         <option value="doctor">Doctor Consultation</option>
                                         <option value="nurse">Home Nursing</option>
@@ -83,7 +84,8 @@ export default function RequestCallback() {
                                     </div>
                                 </div>
                             </div>
-                            <button type="button" className="w-full mt-4 py-3.5 bg-teal-600 hover:bg-teal-700 text-white rounded-xl font-medium shadow-sm hover:shadow-md transition-all active:scale-[0.98] flex items-center justify-center gap-2">
+                            {/* Changed type="button" to type="submit" */}
+                            <button type="submit" className="w-full mt-4 py-3.5 bg-teal-600 hover:bg-teal-700 text-white rounded-xl font-medium shadow-sm hover:shadow-md transition-all active:scale-[0.98] flex items-center justify-center gap-2">
                                 <span>Request Callback</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 256 256"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"></path></svg>
                             </button>
